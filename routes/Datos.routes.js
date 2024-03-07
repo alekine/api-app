@@ -5,5 +5,7 @@ const router = routerx();
 
 router.post("/saveData", Datosctr.postDatos);
 router.get("/buscar", Datosctr.getDatos);
+router.patch("/actualizar/:id", Datosctr.putDatos);
+router.delete("/delete/:id",Datosctr.delDatos);
 
 export default router;
