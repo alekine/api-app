@@ -39,6 +39,18 @@ export default {
       next(error);
     }
   },
+  getDato: async (req, res, next) => {
+    try {
+      
+      const obtener= await Models.Datos.findById(req.params.id);
+      res.status(200).json(obtener);
+    } catch (error) {
+      res.status(500).send({
+        message: "Error al obtener los datos",
+      });
+      next(error);
+    }
+  },
 
   //EndPoint Actualizar
   putDatos: async(req, res, next) => {
@@ -79,5 +91,7 @@ export default {
       });
       next(error);
     }
+    },
+
     }
-  }
+  
