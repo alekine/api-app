@@ -3,6 +3,6 @@ import DatosR from "./Datos.routes";
 
 const router = routerx();
 
-router.use("/datos",DatosR);
+router.use("/movies",DatosR);//hacer peticiones
 
 export default router;

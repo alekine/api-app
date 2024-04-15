@@ -2,13 +2,12 @@ import mongoose from "mongoose";
 
 const datos=mongoose.Schema(
     {
-        nombre:String,
-        direccion:String,
-        correo:String,
-        estado:String,
-        telefono:Number
+        titulo:String,
+        sinopsis:String,
+        imagen:String,
+       
     }
 );
 
-const Datos=mongoose.model('datos',datos);
+const Datos=mongoose.model('Movies',datos);
 export default Datos;

@@ -1,19 +1,23 @@
-import Models from "../models";
+import Models from "../models/index";
+
+
+
+
+
+
 
 export default {
 
   //Endpoint Enviar Datos
   postDatos: async (req, res, next) => {
     try {
-      const { nombre, direccion, correo, estado, telefono } = req.body;
+      const { titulo, sinopsis, imagen } = req.body;
 
       const guardarDatos = new Models.Datos({
-        nombre,
-        direccion,
-        correo,
-        estado,
-        telefono
-        
+        titulo,
+        sinopsis,
+        imagen,
+       
       });
 
       const guardar = await guardarDatos.save();
@@ -26,11 +30,14 @@ export default {
       next(error);
     }
   },
+
+
+
   //EndPoint BuscarAll
   getDatos: async (req, res, next) => {
     try {
       
-      const obtener= await Models.Datos.find();
+      const obtener= await Models.Datos.find();//cambiar a movies
       res.status(200).json(obtener);
     } catch (error) {
       res.status(500).send({
@@ -42,7 +49,7 @@ export default {
   getDato: async (req, res, next) => {
     try {
       
-      const obtener= await Models.Datos.findById(req.params.id);
+      const obtener= await Models.Datos.findById(req.params.id);////////
       res.status(200).json(obtener);
     } catch (error) {
       res.status(500).send({
@@ -52,17 +59,19 @@ export default {
     }
   },
 
+
+
+
   //EndPoint Actualizar
   putDatos: async(req, res, next) => {
     try {
-      const { nombre, direccion, correo, estado, telefono } = req.body;
+      const { titulo, sinopsis, imagen } = req.body;
 
       const actualizarDatos = {
-        nombre,
-        direccion,
-        correo,
-        estado,
-        telefono
+        titulo,
+        sinopsis,
+        imagen,
+      
         
       };
 
@@ -95,3 +104,54 @@ export default {
 
     }
   
+
+
+// getMovies: async (req, res, next) => {
+//   try {
+//     const movies = await Models.Datos.find();
+//     res.status(200).json(movies);
+//   } catch (error) {
+//     res.status(500).send({
+//       message: "Error al obtener las películas",
+//     });
+//     next(error);
+//   }
+// },
+
+// getMovieById: async (req, res, next) => {
+//   try {
+//     const movie = await Models.Datos.findById(req.params.id);
+//     if (!movie) {
+//       return res.status(404).json({ message: "Película no encontrada" });
+//     }
+//     res.status(200).json(movie);
+//   } catch (error) {
+//     res.status(500).send({
+//       message: "Error al obtener la película",
+//     });
+//     next(error);
+//   }
+// },
+
+// updateMovieById: async (req, res, next) => {
+//   try {
+//     const { titulo, sinopsis, imagen } = req.body;
+//     const updatedMovie = {
+//       titulo,
+//       sinopsis,
+//       imagen,
+//     };
+//     const movie = await Models.Datos.findByIdAndUpdate(req.params.id, updatedMovie, { new: true });
+//     if (!movie) {
+//       return res.status(404).json({ message: "Película no encontrada" });
+//     }
+//     res.status(200).json(movie);
+//   } catch (error) {
+//     res.status(500).send({
+//       message: "Error al actualizar la película",
+//     });
+//     next(error);
+//   }
+// },
+
+// }
