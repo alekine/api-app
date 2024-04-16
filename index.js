@@ -3,6 +3,8 @@ import cors from "cors";
 import routes from "./routes/Datos.routes";
 import mongoose from "mongoose";
 
+require('dotenv').config();
+
 
 // const port = process.env.PORT || 4000;
 
