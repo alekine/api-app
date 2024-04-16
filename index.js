@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 10000);
 
 //conexion a base de datos
 mongoose.Promise=global.Promise;
