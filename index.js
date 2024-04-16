@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import routes from "./routes/Datos.routes";
+import routes from "./routes";
 import mongoose from "mongoose";
 
 
@@ -28,13 +28,13 @@ app.use(express.urlencoded({extended:true}));
 app.use("/api",routes);
 app.use(cors());
 
-// app.listen(app.get('port'), () => {
-//   console.log(`Example app listening on port:` + app.get('port'));
-// })
-
-app.listen(port,'0.0.0.0', () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(app.get('port'), () => {
+  console.log(`Example app listening on port:` + app.get('port'));
 })
+
+// app.listen(port,'0.0.0.0', () => {
+//   console.log(`Example app listening on port ${port}`)
+// })
 
 
 
