@@ -1,12 +1,10 @@
 import express from "express";
 import cors from "cors";
-import routes from "./routes/Datos.routes";
+import routes from "./routes";
 import mongoose from "mongoose";
 
-require('dotenv').config();
 
-
-// const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
 
 
@@ -27,7 +25,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-app.use("/",routes);
+app.use("/api",routes);
 app.use(cors());
 
 // app.listen(app.get('port'), () => {
@@ -38,7 +36,9 @@ app.use(cors());
 //   console.log(`Example app listening on port ${port}`) de chat gpt
 // })
 
-app.listen(app.get('port'), '0.0.0.0', () => {
+
+
+app.listen(app.get('port'), '201.132.238.21', () => {
   console.log(`Example app listening on port:` + app.get('port'));
 })
 
