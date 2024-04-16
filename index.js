@@ -37,8 +37,11 @@ app.use(cors());
 // })
 
 
-app.listen(app.get('port'), () => {
+
+app.listen(app.get('port'), '187.154.155.50', () => {
   console.log(`Example app listening on port:` + app.get('port'));
-});
+})
+
+
 
 
