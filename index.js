@@ -1,15 +1,14 @@
 import express from "express";
-import cors from "cors";
-import routes from "./routes/Datos.routes";
+// import cors from "cors";
+// import routes from "./routes/Datos.routes";
 import mongoose from "mongoose";
 
 
-
+const port = process.env.PORT || 4000;
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 4000;
 
-app.get('/', (req, res) => {
+app.get('/0.0.0.0', (req, res) => {
   res.send('Hello World!')
 })
 
