@@ -1,10 +1,12 @@
 import express from "express";
 import cors from "cors";
-import routes from "./routes";
+import routes from "./routes/Datos.routes";
 import mongoose from "mongoose";
 
 
 const port = process.env.PORT || 4000;
+
+
 
 
 
@@ -38,7 +40,7 @@ app.use(cors());
 
 
 
-app.listen(app.get('port'), '201.132.238.21', () => {
+app.listen(app.get('port'), () => {
   console.log(`Example app listening on port:` + app.get('port'));
 })
 
