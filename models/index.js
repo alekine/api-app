@@ -1,4 +1,4 @@
-import Datos from "./Datos.models";
+import Datos from "./Datos.models.js";
 
 export default{
     Datos

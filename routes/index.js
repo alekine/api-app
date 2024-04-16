@@ -1,5 +1,5 @@
 import routerx from "express-promise-router";
-import DatosR from "./Datos.routes";
+import DatosR from "./Datos.routes.js";
 
 const router = routerx();
 
