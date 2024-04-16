@@ -4,13 +4,23 @@ import routes from "./routes/Datos.routes";
 import mongoose from "mongoose";
 
 
+
+const express = require('express')
+const app = express()
 const port = process.env.PORT || 4000;
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 
 
 
 
-const app = express();
+
 
 //conexion a base de datos
 mongoose.Promise=global.Promise;
@@ -19,16 +29,16 @@ const dbUrl='mongodb+srv://blancacapa904:Pk5F1WulCKdLt47P@cluster0.vebeflb.mongo
 mongoose.connect(dbUrl)
 .then(mongoose=>console.log('Conectado a la bd en el puerto 27017'));
 //Listening de puertos
-app.set('port', process.env.PORT || 4000);
+// app.set('port', process.env.PORT || 4000);
 
-app.use(cors());
+// app.use(cors());
 
 
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+// app.use(express.json());
+// app.use(express.urlencoded({extended:true}));
 
-app.use("/api",routes);
-app.use(cors());
+// app.use("/api",routes);
+// app.use(cors());
 
 // app.listen(app.get('port'), () => {
 //   console.log(`Example app listening on port:` + app.get('port')); el del profe
@@ -40,9 +50,9 @@ app.use(cors());
 
 
 
-app.listen(app.get('port'), () => {
-  console.log(`Example app listening on port:` + app.get('port'));
-})
+// app.listen(app.get('port'), () => {
+//   console.log(`Example app listening on port:` + app.get('port'));
+// })
 
 
 
