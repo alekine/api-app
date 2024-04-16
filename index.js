@@ -4,7 +4,7 @@ import routes from "./routes";
 import mongoose from "mongoose";
 
 
-const port = process.env.PORT || 4000;
+// const port = process.env.PORT || 4000;
 
 
 
