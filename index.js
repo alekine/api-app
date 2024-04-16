@@ -3,38 +3,26 @@ import cors from "cors";
 import routes from "./routes/Datos.routes";
 import mongoose from "mongoose";
 
-
-// const port = process.env.PORT || 4000;
-
-
-
 const app = express();
 
-//conexion a base de datos
-mongoose.Promise=global.Promise;
-const dbUrl='mongodb+srv://blancacapa904:Pk5F1WulCKdLt47P@cluster0.vebeflb.mongodb.net/';
+// Conexion a la base de datos
+mongoose.Promise = global.Promise;
+const dbUrl = 'mongodb+srv://blancacapa904:Pk5F1WulCKdLt47P@cluster0.vebeflb.mongodb.net/texflix';
 
 mongoose.connect(dbUrl)
-.then(mongoose=>console.log('Conectado a la bd en el puerto 27017'));
-//Listening de puertos
-app.set('port', process.env.PORT || 4000);
+  .then(() => console.log('Conectado a la base de datos'))
+  .catch(error => console.error('Error al conectar a la base de datos:', error));
 
+// Middleware
 app.use(cors());
-
-
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
-app.use("/api",routes);
-app.use(cors());
+// Rutas
+app.use("/api", routes);
 
-// app.listen(app.get('port'), () => {
-//   console.log(`Example app listening on port:` + app.get('port'));
-// })
-
+// Puerto
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
-
-
+  console.log(`Example app listening on port ${port}`);
+});
