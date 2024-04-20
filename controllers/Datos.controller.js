@@ -84,7 +84,7 @@ export default {
   },
 
   // Middleware para subir archivos con multer
-  uploadMiddleware: upload.single('myFile'),
+  uploadMiddleware: upload.single('imagen'),
 
   // Controlador para manejar la subida de archivos
   uploadFile: (req, res) => {
