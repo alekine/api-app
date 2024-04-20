@@ -1,15 +1,15 @@
+import express from 'express';
+import DatosController from '../controllers/Datos.controller.js';
 
+const router = express.Router();
 
-import routerx from "express-promise-router";
-import Datosctr from "../controllers/Datos.controller.js";
+// Rutas para la gestión de datos
+router.post('/post', DatosController.postDatos); // POST /api/datos/post
+router.get('/obtener', DatosController.getDatos); // GET /api/datos/obtener
+router.put('/put/:id', DatosController.putDatos); // PUT /api/datos/put/:id
+router.delete('/delet/:id', DatosController.delDatos); // DELETE /api/datos/delet/:id
 
-const router = routerx();
-
-router.post("/post", Datosctr.postDatos); // POST /Movies para agregar nuevos datos
-router.get("/obtener", Datosctr.getDatos); // GET /Movies para obtener todos los datos
-router.get("/obtener/:id", Datosctr.getDato); // GET /Movies/:id para obtener un dato por su ID
-router.patch("/put/:id", Datosctr.putDatos); // PATCH /Movies/:id para actualizar un dato por su ID
-router.delete("/delet/:id",Datosctr.delDatos); // DELETE /Movies/:id para eliminar un dato por su ID
+// Rutas para la gestión de archivos
+router.post('/upload', DatosController.uploadMiddleware, DatosController.uploadFile); // POST /api/datos/upload
 
 export default router;
-
