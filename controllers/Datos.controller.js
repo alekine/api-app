@@ -2,15 +2,9 @@ import Models from "../models/index.js";
 import multer from "multer";
 import path from "path";
 
-
-
-
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, 'api-cuartoa', 'uploads'))
-
-
+    cb(null, path.join(__dirname, '..', 'uploads'));
   },
   filename: function (req, file, cb) {
     cb(null, `${Date.now()}-${file.originalname}`);
@@ -94,12 +88,21 @@ export default {
   uploadMiddleware: upload.single('imagen'),
 
   // Controlador para manejar la subida de archivos
-  uploadFile: (req, res) => {
-    // Aquí puedes manejar la lógica para guardar la información del archivo en la base de datos, por ejemplo
-    console.log(req.file); // req.file contendrá la información del archivo subido
-    res.send('Archivo subido correctamente');
+  uploadFile: async (req, res) => {
+    try {
+      // Guardar la ruta de la imagen en la base de datos
+      const guardarDatos = new Models.Datos({
+        titulo: req.body.titulo,
+        sinopsis: req.body.sinopsis,
+        imagen: `/uploads/${req.file.filename}`, // Ruta relativa de la imagen
+      });
+      
+      const guardar = await guardarDatos.save();
+
+      res.status(200).send({ message: 'Imagen subida correctamente.', imageUrl: guardar.imagen });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: 'Error al subir imagen.' });
+    }
   }
 };
-
-
-
