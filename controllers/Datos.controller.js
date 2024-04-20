@@ -8,7 +8,7 @@ import path from "path";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '..', 'uploads'))
+    cb(null, path.join(__dirname, 'api-cuartoa', 'uploads'))
 
 
   },
@@ -100,3 +100,6 @@ export default {
     res.send('Archivo subido correctamente');
   }
 };
+
+
+
