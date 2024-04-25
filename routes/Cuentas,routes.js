@@ -16,7 +16,7 @@ router.patch("/put/:id", Datosctr.putDatos); // PATCH /Movies/:id para actualiza
 router.delete("/delet/:id",Datosctr.delDatos); // DELETE /Movies/:id para eliminar un dato por su ID
 
 
-router.post("/login", Login.AuthController); 
+router.post("/login", Login.login); 
 
 
 
