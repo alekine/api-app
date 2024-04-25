@@ -9,6 +9,6 @@ const cuentas=mongoose.Schema(
     }
 );
 
-const Datos=mongoose.model('cuentas',cuentas);
+const Cuentas=mongoose.model('cuentas',cuentas);
 
 export default Cuentas;

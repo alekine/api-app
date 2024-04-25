@@ -1,4 +1,4 @@
-import Models from "../models/Cuentas.models.js";
+import Models from "../models/index.js";
 
 
 
