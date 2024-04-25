@@ -1,10 +1,10 @@
 
 
 import Datosctr from "../controllers/Cuentas.controller.js";
-import routerx from "express-promise-router";
+import routerc from "express-promise-router";
 
 
-const router = routerx();
+const router = routerc();
 
 router.post("/post-cuenta", Datosctr.postDatos); // POST /Movies para agregar nuevos datos
 router.get("/obtener-cuenta", Datosctr.getDatos); // GET /Movies para obtener todos los datos
