@@ -1,4 +1,4 @@
-import Models from "../models/index.js";
+import Model from "../models/index.js";
 
 
 
@@ -13,7 +13,7 @@ export default {
     try {
       const { nameFull, userName, password } = req.body;
 
-      const guardarDatos = new Models.Datos({
+      const guardarDatos = new Model.Cuentas({
         nameFull,
         userName,
         password
@@ -38,7 +38,7 @@ export default {
   getDatos: async (req, res, next) => {
     try {
       
-      const obtener= await Models.Cuentas.find();//cambiar a movies
+      const obtener= await Model.Cuentas.find();//cambiar a movies
       res.status(200).json(obtener);
     } catch (error) {
       res.status(500).send({
@@ -50,7 +50,7 @@ export default {
   getDato: async (req, res, next) => {
     try {
       
-      const obtener= await Models.Cuentas.findById(req.params.id);////////
+      const obtener= await Model.Cuentas.findById(req.params.id);////////
       res.status(200).json(obtener);
     } catch (error) {
       res.status(500).send({
@@ -76,7 +76,7 @@ export default {
         
       };
 
-      const actualizar =await Models.Cuentas.findByIdAndUpdate(req.params.id, actualizarDatos); ;
+      const actualizar =await Model.Cuentas.findByIdAndUpdate(req.params.id, actualizarDatos); ;
       res.status(200).json(actualizar);
       
     } catch (error) {
@@ -90,7 +90,7 @@ export default {
   //EndPoint eliminar
   delDatos: async(req, res, next) => {
     try {
-      const el= await Models.Cuentas.findByIdAndDelete(req.params.id);
+      const el= await Model.Cuentas.findByIdAndDelete(req.params.id);
       res.status(200).send({
         message: "Datos eliminados correctamente"
       });
