@@ -24,6 +24,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.use("/api",routes);
 
+
 app.listen(app.get('port'), () => {
   console.log(`Example app listening on port:` + app.get('port'));
 })
