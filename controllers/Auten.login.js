@@ -1,7 +1,7 @@
 // En tu controlador de autenticación (AuthController.js)
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/index.js';
+import User from '../models/Cuentas.models.js';
 
 const AuthController = {
   login: async (req, res) => {
@@ -9,7 +9,7 @@ const AuthController = {
 
     try {
       // Buscar al usuario en la base de datos por nombre de usuario
-      const user = await Cuentas.findOne({ userame });
+      const user = await User.findOne({ username });
 
       // Si no se encuentra el usuario, devolver un error
       if (!user) {
@@ -17,7 +17,7 @@ const AuthController = {
       }
 
       // Verificar la contraseña
-      const isPasswordValid = await bcrypt.compare(password, Cuentas.password);
+      const isPasswordValid = await bcrypt.compare(password, user.password);
 
       // Si la contraseña no coincide, devolver un error
       if (!isPasswordValid) {
