@@ -1,6 +1,6 @@
 import routerx from "express-promise-router";
 import DatosR from "./Datos.routes.js";
-import CuentasR from "./Cuentas,routes.js";
+import CuentasR from "./Cuentas.routes.js";
 
 
 

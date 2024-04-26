@@ -2,7 +2,7 @@
 
 import Datosctr from "../controllers/Cuentas.controller.js";
 import routerc from "express-promise-router";
-import Login from "../controllers/Auten.login.js";
+import cuentasctr from "../controllers/Auten.login.js";
 
 
 
@@ -16,7 +16,7 @@ router.patch("/put/:id", Datosctr.putDatos); // PATCH /Movies/:id para actualiza
 router.delete("/delet/:id",Datosctr.delDatos); // DELETE /Movies/:id para eliminar un dato por su ID
 
 
-router.post("/login", Login.login); 
+router.post("/login", cuentasctr.login); 
 
 
 

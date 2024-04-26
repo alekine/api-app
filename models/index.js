@@ -4,5 +4,6 @@ import Cuentas from "./Cuentas.models.js";
 
 
 export default{
-    Datos,Cuentas
+    Datos,
+    Cuentas
 }
