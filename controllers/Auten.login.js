@@ -3,6 +3,9 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/Cuentas.models.js';
 
+
+
+
 const AuthController = {
   login: async (req, res) => {
     const { userName, password } = req.body;
