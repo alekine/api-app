@@ -1,18 +1,18 @@
 // En tu controlador de autenticación (AuthController.js)
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/index.js';
+import User from '../models/Cuentas.models.js';
 
 
 
 
 const AuthController = {
   login: async (req, res) => {
-    const { userName, password } = req.body;
+    const { username, password } = req.body;
 
     try {
       // Buscar al usuario en la base de datos por nombre de usuario
-      const user = await User.findOne({ userName });
+      const user = await User.findOne({ username });
 
       // Si no se encuentra el usuario, devolver un error
       if (!user) {
