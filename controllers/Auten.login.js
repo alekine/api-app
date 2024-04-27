@@ -8,11 +8,11 @@ import User from '../models/Cuentas.models.js';
 
 const AuthController = {
   login: async (req, res) => {
-    const { username, password } = req.body;
+    const { userName, password } = req.body;
 
     try {
       // Buscar al usuario en la base de datos por nombre de usuario
-      const user = await User.findOne({ username });
+      const user = await User.findOne({ userName });
 
       // Si no se encuentra el usuario, devolver un error
       if (!user) {
