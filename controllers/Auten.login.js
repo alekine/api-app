@@ -1,7 +1,7 @@
 // En tu controlador de autenticación (AuthController.js)
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/Cuentas.models.js';
+import User from '../models/index.js';
 
 
 
