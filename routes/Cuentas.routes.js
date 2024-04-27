@@ -7,18 +7,18 @@ import count from "../controllers/Auten.login.js";
 
 
 
-const router = routerc();
+const routers = routerc();
 
-router.post("/post-cuenta", Datosctr.postDatos); // POST /Movies para agregar nuevos datos
-router.get("/obtener-cuenta", Datosctr.getDatos); // GET /Movies para obtener todos los datos
-router.get("/obtener/:id", Datosctr.getDato); // GET /Movies/:id para obtener un dato por su ID
-router.patch("/put/:id", Datosctr.putDatos); // PATCH /Movies/:id para actualizar un dato por su ID
-router.delete("/delet/:id",Datosctr.delDatos); // DELETE /Movies/:id para eliminar un dato por su ID
-
-
-router.post("/auten", count.login); 
+routers.post("/post-cuenta", Datosctr.postDatos); // POST /Movies para agregar nuevos datos
+routers.get("/obtener-cuenta", Datosctr.getDatos); // GET /Movies para obtener todos los datos
+routers.get("/obtener/:id", Datosctr.getDato); // GET /Movies/:id para obtener un dato por su ID
+routers.patch("/put/:id", Datosctr.putDatos); // PATCH /Movies/:id para actualizar un dato por su ID
+routers.delete("/delet/:id",Datosctr.delDatos); // DELETE /Movies/:id para eliminar un dato por su ID
 
 
+routers.post("/auten", count.login); 
 
-export default router;
+
+
+export default routers;
 
