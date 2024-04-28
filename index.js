@@ -1,6 +1,9 @@
 import express from "express";
 import cors from "cors";
 import routes from "./routes/index.js";
+import rout from "./routes/User.routes.js";
+
+
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 dotenv.config();
@@ -23,6 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use("/api",routes);
+app.use("/auten",rout);
 
 
 app.listen(app.get('port'), () => {
