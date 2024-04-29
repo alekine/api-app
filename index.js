@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import routes from "./routes/index.js";
-import rout from "./routes/exporUserRout.js";
 
 
 import mongoose from "mongoose";
@@ -26,7 +25,6 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use("/api",routes);
-app.use("/User",rout);
 
 
 app.listen(app.get('port'), () => {
