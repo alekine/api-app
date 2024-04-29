@@ -1,10 +1,6 @@
-// En tu controlador de autenticación (AuthController.js)
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/Cuentas.models.js';
-
-
-
 
 const AuthController = {
   login: async (req, res) => {
