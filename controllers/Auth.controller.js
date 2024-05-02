@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 // Importar el modelo de usuario
-import User from '../models/Cuentas.models';
+import User from './index.js';
 
 const AuthController = {
   login: async (req, res) => {
