@@ -12,7 +12,7 @@ const routers = routerc();
 
 
 
-routers.post("/login", Cuentasctr.login); // POST para autenticar usuario
+routers.post("/Cuentas/login", Cuentasctr.login); // POST para autenticar usuario
 
 routers.post("/post-cuenta", Datosctr.postDatos); // POST para guaradar cuentas
 
