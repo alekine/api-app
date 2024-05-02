@@ -27,4 +27,3 @@ routers.delete("/delet/:id",Datosctr.delDatos); // DELETE /Movies/:id para elimi
 
 export default routers;
 
-

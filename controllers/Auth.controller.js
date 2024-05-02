@@ -5,7 +5,9 @@ import jwt from 'jsonwebtoken';
 // Importar el modelo de usuario
 import User from './index.js';
 
-const AuthController = {
+
+export default {
+
   login: async (req, res) => {
     // Extraer nombre de usuario y contraseña del cuerpo de la solicitud
     const { userName, password } = req.body;
@@ -40,4 +42,4 @@ const AuthController = {
   }
 };
 
-export default AuthController;
+
