@@ -1,7 +1,6 @@
 
 
 import Datosctr from "../controllers/Datos.controller.js";
-import Fetch from "../controllers/Fetch.js";
 import routerx from "express-promise-router";
 
 
@@ -14,7 +13,6 @@ router.patch("/put/:id", Datosctr.putDatos); // PATCH /Movies/:id para actualiza
 router.delete("/delet/:id",Datosctr.delDatos); // DELETE /Movies/:id para eliminar un dato por su ID
 
 
-router.post('/upload', Fetch.uploadFile);
 
 
 export default router;
