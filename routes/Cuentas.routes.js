@@ -19,7 +19,7 @@ routers.delete("/delet/:id",Datosctr.delDatos); // DELETE /Movies/:id para elimi
 
 
 
-routers.post("/Auth", Cuentasctr.login); // POST para autenticar usuario
+routers.post("/login", Cuentasctr.login); // POST para autenticar usuario
 
 
 export default routers;
