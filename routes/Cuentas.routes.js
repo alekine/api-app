@@ -23,8 +23,8 @@ routers.delete("/delet/:id",Datosctr.delDatos); // DELETE /Movies/:id para elimi
 
 
 
-routers.post("/login", Cuentasctr.login); // POST para autenticar usuario
 
 
 export default routers;
+
 
