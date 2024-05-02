@@ -1,9 +1,9 @@
-import Cuentas from "../models/Cuentas.models.js";
+import User from "../models/Cuentas.models.js";
 
 
 
 export default{
     
-    Cuentas
+    User
 }
 
