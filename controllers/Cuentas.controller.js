@@ -20,9 +20,7 @@ export default {
 
       const guardarDatos = new Model.Cuentas({
         nameFull,
-        userName:{
-          type:unique
-        },
+        userName,
         password
 
        
