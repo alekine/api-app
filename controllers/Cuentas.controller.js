@@ -48,7 +48,7 @@ export default {
         } else if (!check) {
           res.status(400).send({ msg: "Password incorrecto" });
         } else {
-          res.status(200).send({ access: jwt.createAccessToken});
+          res.status(200).send({ access: jwt.createAccessToken(response)});
         }
       });
     } catch (error) {

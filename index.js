@@ -16,6 +16,7 @@ app.set('port', process.env.PORT || 10000);
 //conexion a base de datos
 mongoose.Promise=global.Promise;
 mongoose.connect(process.env.MONGODB_URI)
+
 .then(() => console.log('Conectado aL MongoDB Atlas'))
 .catch((error) => console.log(error))
 //Listening de puertos
