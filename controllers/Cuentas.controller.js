@@ -35,7 +35,7 @@ export default {
       if (!userName) res.status(400).send({ msg: "El username es obligatorio" });
       if (!password) res.status(400).send({ msg: "El password es obligatorio" });
 
-      const response = await Model.findOne({ userName });
+      const response = await Model.Cuentas.findOne({ userName });
       if (!response) return res.status(400).send({ msg: "Usuario no encontrado" });
 
       bcrypt.compare(password, response.password, (bcryptError, check) => {
