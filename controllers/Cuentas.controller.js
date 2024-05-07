@@ -1,5 +1,9 @@
 import Model from "../models/index.js";
 import bcrypt from "bcryptjs";
+import jwt from "../utils/jwt.js"
+
+
+
 
 export default {
   // Endpoint para enviar datos
@@ -44,7 +48,7 @@ export default {
         } else if (!check) {
           res.status(400).send({ msg: "Password incorrecto" });
         } else {
-          res.status(200).send({ msg: 'Usuario logueado correctamente' });
+          res.status(200).send({ access: jwt.createAccessToken});
         }
       });
     } catch (error) {
