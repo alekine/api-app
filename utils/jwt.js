@@ -1,10 +1,11 @@
 import jwt from "jsonwebtoken";
 import { JWT_SECRET_KEY } from "../constantes.js";
 
+export default{
 
 
-
-function createAccessToken (usuario){
+    
+createAccessToken (usuario){
     const expToken=new Date();
     expToken.setHours(expToken.getHours()+3);
 
@@ -20,6 +21,6 @@ function createAccessToken (usuario){
 
 }
 
-module.exports={
-    createAccessToken
-};
+}
+
+
