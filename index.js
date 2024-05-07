@@ -1,11 +1,15 @@
 import express from "express";
 import cors from "cors";
 import routes from "./routes/index.js";
+import routerLogin from "./routes/Login.routes.js"
 
 
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
 dotenv.config();
+
+
+
 
 const app = express();
 app.set('port', process.env.PORT || 10000);
@@ -25,6 +29,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use("/api",routes);
+app.use("/Auth",routerLogin);
+
 
 
 app.listen(app.get('port'), () => {
