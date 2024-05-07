@@ -1,4 +1,5 @@
 import Model from "../models/index.js";
+import bcrypt from 'bcryptjs'
 
 
 
@@ -11,12 +12,17 @@ export default {
   //Endpoint Enviar Datos
   postDatos: async (req, res, next) => {
     try {
+
+      const passwordHash = await bcrypt.hash(password, 10)
+
+
+
       const { nameFull, userName, password } = req.body;
 
       const guardarDatos = new Model.Cuentas({
         nameFull,
         userName,
-        password
+        password: passwordHash,
 
        
       });
