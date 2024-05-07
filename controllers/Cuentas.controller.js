@@ -1,40 +1,24 @@
 import Model from "../models/index.js";
-import bcrypt from "bcryptjs"
-
-
-
-
-
-
-
+import bcrypt from "bcryptjs";
 
 export default {
-
-  //Endpoint Enviar Datos
+  // Endpoint para enviar datos
   postDatos: async (req, res, next) => {
     try {
-
-
-
-
       const { nameFull, userName, password } = req.body;
 
       const guardarDatos = new Model.Cuentas({
         nameFull,
         userName,
-      
-
-       
+     
       });
-      ////////////////
-const salt = bcrypt.genSaltSync(10);
-const hashPassword = bcrypt.hashSync(password,salt)
-guardarDatos.password=hashPassword;
 
+      const salt = bcrypt.genSaltSync(10);
+      const hashPassword = bcrypt.hashSync(password, salt);
+      guardarDatos.password = hashPassword;
 
       const guardar = await guardarDatos.save();
       res.status(200).json(guardar);
-      
     } catch (error) {
       res.status(500).send({
         message: "Error al enviar",
@@ -43,13 +27,35 @@ guardarDatos.password=hashPassword;
     }
   },
 
+  // Validación de usuario
+  Login: async (req, res) => {
+    const { userName, password } = req.body;
 
+    try {
+      if (!userName) res.status(400).send({ msg: "El username es obligatorio" });
+      if (!password) res.status(400).send({ msg: "El password es obligatorio" });
 
-  //EndPoint BuscarAll
+      const response = await Model.findOne({ userName });
+      if (!response) return res.status(400).send({ msg: "Usuario no encontrado" });
+
+      bcrypt.compare(password, response.password, (bcryptError, check) => {
+        if (bcryptError) {
+          res.status(500).send({ msg: "Error del usuario" });
+        } else if (!check) {
+          res.status(400).send({ msg: "Password incorrecto" });
+        } else {
+          res.status(200).send({ msg: 'Usuario logueado correctamente' });
+        }
+      });
+    } catch (error) {
+      res.status(500).send({ msg: "Error al autenticar" });
+    }
+  },
+
+  // EndPoint para buscar todos los datos
   getDatos: async (req, res, next) => {
     try {
-      
-      const obtener= await Model.Cuentas.find();//cambiar a movies
+      const obtener = await Model.Cuentas.find();
       res.status(200).json(obtener);
     } catch (error) {
       res.status(500).send({
@@ -58,10 +64,11 @@ guardarDatos.password=hashPassword;
       next(error);
     }
   },
+
+  // EndPoint para obtener un dato por ID
   getDato: async (req, res, next) => {
     try {
-      
-      const obtener= await Model.Cuentas.findById(req.params.id);////////
+      const obtener = await Model.Cuentas.findById(req.params.id);
       res.status(200).json(obtener);
     } catch (error) {
       res.status(500).send({
@@ -71,11 +78,8 @@ guardarDatos.password=hashPassword;
     }
   },
 
-
-
-
-  //EndPoint Actualizar
-  putDatos: async(req, res, next) => {
+  // EndPoint para actualizar datos
+  putDatos: async (req, res, next) => {
     try {
       const { nameFull, userName, password } = req.body;
 
@@ -83,13 +87,10 @@ guardarDatos.password=hashPassword;
         nameFull,
         userName,
         password
-      
-        
       };
 
-      const actualizar =await Model.Cuentas.findByIdAndUpdate(req.params.id, actualizarDatos); ;
+      const actualizar = await Model.Cuentas.findByIdAndUpdate(req.params.id, actualizarDatos);
       res.status(200).json(actualizar);
-      
     } catch (error) {
       res.status(500).send({
         message: "Error al actualizar",
@@ -98,22 +99,18 @@ guardarDatos.password=hashPassword;
     }
   },
 
-  //EndPoint eliminar
-  delDatos: async(req, res, next) => {
+  // EndPoint para eliminar datos
+  delDatos: async (req, res, next) => {
     try {
-      const el= await Model.Cuentas.findByIdAndDelete(req.params.id);
+      await Model.Cuentas.findByIdAndDelete(req.params.id);
       res.status(200).send({
         message: "Datos eliminados correctamente"
       });
-      //res.status(200).json(el);
     } catch (error) {
       res.status(500).send({
         message: "Error al eliminar dato",
       });
       next(error);
     }
-    },
-
-    }
-  
-
+  },
+};
