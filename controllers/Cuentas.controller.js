@@ -1,4 +1,5 @@
 import Model from "../models/index.js";
+import bcrypt from "bcryptjs"
 
 
 
@@ -21,12 +22,14 @@ export default {
       const guardarDatos = new Model.Cuentas({
         nameFull,
         userName,
-        password
+      
 
        
       });
       ////////////////
-
+const salt = bcrypt.genSaltSync(10);
+const hashPassword = bcrypt.hashSync(password,salt)
+guardarDatos.password=hashPassword;
 
 
       const guardar = await guardarDatos.save();
