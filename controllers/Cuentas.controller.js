@@ -6,6 +6,7 @@ import Model from "../models/index.js";
 
 
 
+
 export default {
 
   //Endpoint Enviar Datos
@@ -19,11 +20,16 @@ export default {
 
       const guardarDatos = new Model.Cuentas({
         nameFull,
-        userName,
+        userName:{
+          type:unique
+        },
         password
 
        
       });
+      ////////////////
+
+
 
       const guardar = await guardarDatos.save();
       res.status(200).json(guardar);
