@@ -11,7 +11,7 @@ export default{
 
     const token = req.headers.authorization.replace("Bearer ","")
         try{
-            const payLoad = jwt.decoded(token);
+            const payload = jwt.decoded(token);
             
             const {exp} = payload;
             const currentData = new Date().getTime();
