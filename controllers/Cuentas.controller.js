@@ -48,13 +48,40 @@ export default {
         } else if (!check) {
           res.status(400).send({ msg: "Password incorrecto" });
         } else {
-          res.status(200).send({ access: jwt.createAccessToken(response)});
+          res.status(200).send({ access: jwt.createAccessToken(response),
+            refresh: jwt.createRefreshToken(response)
+          });
         }
       });
     } catch (error) {
       res.status(500).send({ msg: "Error al autenticar" });
     }
   },
+
+   refreshAccessToken: async (req, res)  => {
+
+    const {token}= req.body;
+    if (!token) res.status(400).send({msg: "Token requerido"})
+
+    const {usuario_id}=jwt.decoded(token);
+
+    try{
+        const response = await Model.Cuentas.findOne({_id:usuario_id})
+        res.status(200).send({
+          accessToken: jwt.createAccessToken(response)
+        })
+    }catch(error){
+
+        res.status(500).send({msg:"error del servidor"})
+
+    }
+  },
+
+
+
+
+
+
 
   // EndPoint para buscar todos los datos
   getDatos: async (req, res, next) => {

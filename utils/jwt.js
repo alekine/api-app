@@ -19,6 +19,25 @@ createAccessToken (usuario){
     return jwt.sign(payLoad,JWT_SECRET_KEY)
 
 
+},
+
+createRefreshToken(usuario){
+    const expToken = new Date();
+
+    expToken.setMonth(expToken.getMonth()+1);
+
+    const payLoad ={
+        token_type:"refresh",
+        usuario_id: usuario._id,
+        iat: expToken.getTime()
+    }
+    return jwt.sign(payLoad, JWT_SECRET_KEY);
+},
+
+decoded(token){
+    return jwt.decode(token, JWT_SECRET_KEY, true);
+
+
 }
 
 }
