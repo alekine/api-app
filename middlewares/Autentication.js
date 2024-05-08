@@ -13,14 +13,14 @@ export default{
         try{
             const payLoad = jwt.decoded(token);
             
-            const {exp} = payLoad;
+            const {exp} = payload;
             const currentData = new Date().getTime();
 
             if(exp<=currentData){
                 return res.status(400).send({ msg: "el token ha expirado"})
             }
 
-        req.usuario=payLoad;
+        req.usuario=payload;
 
         }catch(error){
             return res.status(400).send({
