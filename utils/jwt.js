@@ -5,7 +5,7 @@ export default{
 
 
     
-createAccessToken: (usuario) =>{
+createAccessToken: function (usuario) {
     const expToken=new Date();
     expToken.setHours(expToken.getHours()+3);
 
@@ -21,7 +21,7 @@ createAccessToken: (usuario) =>{
 
 },
 
-createRefreshToken: (usuario)=>{
+createRefreshToken: function (usuario) {
     const expToken = new Date();
 
     expToken.setMonth(expToken.getMonth()+1);
@@ -34,7 +34,7 @@ createRefreshToken: (usuario)=>{
     return jwt.sign(payload,JWT_SECRET_KEY);
 },
 
-decoded:(token)=>{
+decoded: function(token) {
     return jwt.decode(token, JWT_SECRET_KEY, true);
 
 
