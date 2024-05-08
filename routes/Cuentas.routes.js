@@ -12,8 +12,8 @@ const routers = routerc();
 
 
 
-routers.post("/registro", Datosctr.postDatos); // POST para guaradar cuentas
-routers.post("/auth", Datosctr.Login); // POST para guaradar cuentas
+routers.post("/auth/registro", Datosctr.postDatos); // POST para guaradar cuentas
+routers.post("/auth/login", Datosctr.Login); // POST para guaradar cuentas
 routers.post("/auth/refreshtoken", Datosctr.refreshAccessToken); // POST para guaradar cuentas
 
 
