@@ -16,13 +16,13 @@ export default{
             const {exp} = payload;
             const currentData = new Date().getTime();
 
-            if(exp<=currentData){
+            if(exp <= currentData){
                 return res.status(400).send({ msg: "el token ha expirado"})
             }
 
         req.usuario=payload;
 
-        }catch(error){
+        } catch (error){
             return res.status(400).send({
                 msg: "token no encontrado o no valido"
             })
