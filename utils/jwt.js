@@ -9,14 +9,14 @@ createAccessToken (usuario){
     const expToken=new Date();
     expToken.setHours(expToken.getHours()+3);
 
-    const payLoad ={
+    const payload ={
         token_type:"access",
         usuario_id:usuario._id,
         iat:Date.now(),
         exp:expToken.getTime()
     }
 
-    return jwt.sign(payLoad,JWT_SECRET_KEY)
+    return jwt.sign(payload,JWT_SECRET_KEY)
 
 
 },
@@ -26,12 +26,12 @@ createRefreshToken(usuario){
 
     expToken.setMonth(expToken.getMonth()+1);
 
-    const payLoad ={
+    const payload ={
         token_type:"refresh",
         usuario_id: usuario._id,
         iat: expToken.getTime()
     }
-    return jwt.sign(payLoad, JWT_SECRET_KEY);
+    return jwt.sign(payload, JWT_SECRET_KEY);
 },
 
 decoded(token){
