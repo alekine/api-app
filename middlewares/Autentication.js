@@ -13,7 +13,8 @@ export default{
         try{
             const payload = jwt.decoded(token);
             
-            const {exp} = payload;
+            const exp = payload.exp;
+
             const currentData = new Date().getTime();
 
             if(exp <= currentData){
