@@ -9,7 +9,7 @@ export default{
         })
        }
 
-    const token = req.headers.authorization.replace("Bearer ", " " )
+    const token = req.headers.authorization.replace("Bearer ", "" )
         try{
             const payLoad = jwt.decoded(token);
             
