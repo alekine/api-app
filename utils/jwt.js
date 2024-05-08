@@ -5,7 +5,7 @@ export default{
 
 
     
-createAccessToken (usuario){
+createAccessToken: (usuario) =>{
     const expToken=new Date();
     expToken.setHours(expToken.getHours()+3);
 
@@ -21,7 +21,7 @@ createAccessToken (usuario){
 
 },
 
-createRefreshToken(usuario){
+createRefreshToken: (usuario)=>{
     const expToken = new Date();
 
     expToken.setMonth(expToken.getMonth()+1);
