@@ -34,7 +34,7 @@ createRefreshToken: (usuario)=>{
     return jwt.sign(payload, JWT_SECRET_KEY);
 },
 
-decoded(token){
+decoded:(token)=>{
     return jwt.decode(token, JWT_SECRET_KEY, true);
 
 
