@@ -49,7 +49,7 @@ export default {
           res.status(400).send({ msg: "Password incorrecto" });
         } else {
           res.status(200).send({ access: jwt.createAccessToken(response),
-            refresh: jwt.createAccessToken(response)
+            refresh: jwt.createRefreshToken(response)
           });
         }
       });
