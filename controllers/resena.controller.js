@@ -37,7 +37,7 @@ export default {
   getResena: async (req, res, next) => {
     try {
       
-      const obtener= await Models.Resenas.find();//cambiar a movies
+      const obtener= await Models.find();//cambiar a movies
       res.status(200).json(obtener);
     } catch (error) {
       res.status(500).send({
@@ -49,7 +49,7 @@ export default {
   getResena: async (req, res, next) => {
     try {
       
-      const obtener= await Models.Resenas.findById(req.params.id);////////
+      const obtener= await Models.findById(req.params.id);////////
       res.status(200).json(obtener);
     } catch (error) {
       res.status(500).send({
@@ -75,7 +75,7 @@ export default {
         
       };
 
-      const actualizar =await Models.Resenas.findByIdAndUpdate(req.params.id, actualizarDatos); ;
+      const actualizar =await Models.findByIdAndUpdate(req.params.id, actualizarDatos); ;
       res.status(200).json(actualizar);
       
     } catch (error) {
@@ -89,7 +89,7 @@ export default {
   //EndPoint eliminar
   delResena: async(req, res, next) => {
     try {
-      const el= await Models.Resenas.findByIdAndDelete(req.params.id);
+      const el= await Models.findByIdAndDelete(req.params.id);
       res.status(200).send({
         message: "Datos eliminados correctamente"
       });
