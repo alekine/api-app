@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use("/api",routes);
-app.use("/apii",routesUsuario);
+app.use("/api",routesUsuario);
 
 
 
