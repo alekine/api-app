@@ -1,4 +1,4 @@
-import Models from "../models/resena.model";
+import Models from "../models/resena.model.js";
 
 
 
