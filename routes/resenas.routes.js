@@ -7,7 +7,7 @@ import routerx from "express-promise-router";
 const router = routerx();
 
 router.post("/addResena", Datosctr.postResena); // POST /Movies para agregar nuevos datos
-router.get("/obtenerResena", Datosctr.getResena); // GET /Movies para obtener todos los datos
+router.get("/obtenerResena", Datosctr.getResenas); // GET /Movies para obtener todos los datos
 
 
 router.get("resena/obtener/:id", Datosctr.getResena); // GET /Movies/:id para obtener un dato por su ID

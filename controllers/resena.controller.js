@@ -36,7 +36,7 @@ export default {
 
 
   //EndPoint BuscarAll
-  getResena: async (req, res, next) => {
+  getResenas: async (req, res, next) => {
     try {
       
       const obtener= await Models.Resenas.find();//cambiar a movies
@@ -104,6 +104,8 @@ export default {
       next(error);
     }
     },
+
+    
 
     }
   
