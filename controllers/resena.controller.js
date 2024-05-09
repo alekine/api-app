@@ -11,9 +11,11 @@ export default {
   //Endpoint Enviar Datos
   postResena: async (req, res, next) => {
     try {
-      const { userName, resena, calificacion } = req.body;
+      const { id_movie, userName, resena, calificacion } = req.body;
 
       const guardarDatos = new Models.Resenas({
+
+        id_movie,
         userName,
         resena,
         calificacion,
@@ -65,9 +67,10 @@ export default {
   //EndPoint Actualizar
   putResena: async(req, res, next) => {
     try {
-      const { userName, resena, calificacion } = req.body;
+      const { id_movie, userName, resena, calificacion } = req.body;
 
       const actualizarDatos = {
+        id_movie,
         userName,
         calificacion,
         resena,
