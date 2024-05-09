@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import routes from "./routes/index.js";
 import routesUsuario from "./routes/Usuarios.routes.js"
+import routesResena from "./routes/resenas.routes.js"
 
 
 import mongoose from "mongoose";
@@ -31,7 +32,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.use("/api",routes);
 app.use("/api",routesUsuario);
-
+app.use("/api",routesResena)
 
 
 app.listen(app.get('port'), () => {
