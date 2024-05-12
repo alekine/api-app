@@ -5,6 +5,7 @@ const datos=mongoose.Schema(
         titulo:String,
         sinopsis:String,
         imagen:String,
+        categoria:String,
        
     }
 );
