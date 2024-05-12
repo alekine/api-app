@@ -11,12 +11,13 @@ export default {
   //Endpoint Enviar Datos
   postDatos: async (req, res, next) => {
     try {
-      const { titulo, sinopsis, imagen } = req.body;
+      const { titulo, sinopsis, imagen, categoria } = req.body;
 
       const guardarDatos = new Models.Datos({
         titulo,
         sinopsis,
         imagen,
+        categoria,
        
       });
 
@@ -65,12 +66,13 @@ export default {
   //EndPoint Actualizar
   putDatos: async(req, res, next) => {
     try {
-      const { titulo, sinopsis, imagen } = req.body;
+      const { titulo, sinopsis, imagen, categoria } = req.body;
 
       const actualizarDatos = {
         titulo,
         sinopsis,
         imagen,
+        categoria,
       
         
       };
