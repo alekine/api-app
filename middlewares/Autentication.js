@@ -22,6 +22,7 @@ export default{
             }
 
         req.usuario=payload;
+        next();
 
         } catch (error){
             return res.status(400).send({
