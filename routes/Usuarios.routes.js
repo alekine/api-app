@@ -9,8 +9,7 @@ import md_auth from "../middlewares/Autentication.js"
 
 const router = routerx();
 
-// router.get("/userme",[md_auth.asureAuth],UserCrt.obtenerUserLogued); 
-router.get("/userme",UserCrt.obtenerUserLogued); 
+router.get("/userme",[md_auth.asureAuth],UserCrt.obtenerUserLogued); 
 
 
 
