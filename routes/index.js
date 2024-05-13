@@ -9,7 +9,7 @@ const router = routerx();
 
 router.use("/movies",DatosR);//hacer peticiones
 router.use("/cuentas",CuentasR);//hacer peticiones
-router.use("/auth",AuthR);//hacer peticiones
+router.use("/user",AuthR);//hacer peticiones
 
 
 export default router;
